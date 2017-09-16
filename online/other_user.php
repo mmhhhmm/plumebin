@@ -94,14 +94,16 @@
                     $location = "other_user.php?username=" . $_GET['username'];
 
                     $nu = $_GET['username'];
-                    // $nquery = "SELECT * FROM $nu";
-                    // if ($r = mysql_query($nquery)) {
-                    //   while ($row = mysql_fetch_array($r)) {
-                    //     $number = $row['phone_number'];
-                    //     notify($config, $number, 'someone subscribed to you on plumebin.com , check your notifications!');
-                    //   }
-                    // }
-                    header('Location: ' . $location . ' ');
+                    $nquery = "SELECT * FROM $nu";
+                    if ($r = mysql_query($nquery)) {
+                      while ($row = mysql_fetch_array($r)) {
+                        $number = $row['phone_number'];
+                        notify($config, $number, 'someone subscribed to you on plumebin.com , check your notifications!');
+                        header('Location: ' . $location . ' ');
+                        print mysql_error();
+                      }
+                    }
+
                 } else {
                     //unsubscribing
 

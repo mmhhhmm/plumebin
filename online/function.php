@@ -81,16 +81,16 @@ function create_community($community_name, $community_caption){
     </html>
     ";
     create_form($community_name);
-    
+
     print '<div id="down-btn" style="border: 2px solid white; background-color: transparent; border-radius: 10px; height: 80px; width: 33%; margin: auto;">
                         <a href="#posts" class="btn page-scroll">
                             <p style="color: black; text-align: center;">see posts<br>
                             <span class="glyphicon glyphicon-chevron-down" aria-hidden="true" style="margin-top: 10px; color: black;"></span></p>
                         </a>
                         </div>';
-    
-    
-    
+
+
+
     print "<section id='posts'><br><br>";
     $path = strtolower($community_name) . ".php";
     mysql_connect('localhost', 'emilio2', 'k421k421');;
@@ -109,7 +109,7 @@ function create_community($community_name, $community_caption){
     }
     handle_form($community_name);
     print "</section>";
-    
+
     print ' <div class="navbar navbar-default navbar-fixed-top text-center" id="bot" style="box-shadow: 0px 2px 5px #888888; border-bottom-right-radius: 10px;
 border-bottom-left-radius: 10px;">
     <div>

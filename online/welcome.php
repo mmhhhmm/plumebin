@@ -51,9 +51,10 @@ border-bottom-left-radius: 10px;">
 
       mysql_connect('localhost', 'emilio2', 'k421k421');
       mysql_select_db('spade');
-      session_start();   
+      session_start();
 
       $user = $_SESSION['username'];
+      $limit = 5;
       $query = "SELECT * FROM $user ORDER BY date_entered DESC";
       if ($r = mysql_query($query)) {
           while ($row = mysql_fetch_array($r)) {
@@ -64,7 +65,7 @@ border-bottom-left-radius: 10px;">
 
                   print "<div  class='well' id='wellbox'><h3>" . $row['feed'] . "<strong><h3><a href=\"other_user.php?username={$row['feed_name']}\">" . $row['feed_name'] . "</a></h3></strong></p>";
                   print "</h3>";
-                  
+
                   print "</div></div>";
               }
             if (!empty($row['feed_pics']) AND !empty($row['feed_name'])) {

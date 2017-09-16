@@ -92,13 +92,13 @@
                     if (!empty($row['phone_number'])) {
 
                       $number = $row['phone_number'];
+
                     }
                   }
                 }
                 if(is_numeric($number)){
                     notify($config, $number, $user . ' just started a message with you on plumebin.com');
                 }
-
 
                 //refreshes the page to update new tables
                 header('Location: chat.php');
