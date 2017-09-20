@@ -15,6 +15,7 @@
 
   include("function.php");
   handle_user_form();
+  handle_user_link_form();
 
   ?>
 </head>

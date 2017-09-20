@@ -81,6 +81,23 @@
 
 
             </div>
+
+            <div class="swiper-slide">
+
+
+            <!-- SLIDE 3 -->
+
+        	<?php
+
+          create_user_link_form();
+
+
+        	?>
+
+
+            </div>
+
+
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>

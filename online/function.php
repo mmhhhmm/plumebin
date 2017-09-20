@@ -145,26 +145,30 @@ function create_form($com){
 function handle_form($com){
     if(isset($_POST['red'])) {
         if (!empty($_POST['post'])) {
-            $query = "CREATE TABLE $com(
-                date_entered DATETIME,
-                post TEXT,
-                username TEXT,
-                subs TEXT,
-                com_name TEXT
-            )";
-            mysql_query($query);
-            $_POST['post'] = str_replace("'", "\'", $_POST['post']);
-            $query = "INSERT INTO $com(date_entered, post, username, com_name) VALUES(
-                NOW(), '{$_POST['post']}', '{$_SESSION['username']}', '{$com}'
-            )";
-            mysql_query($query);
+            if (strlen($_POST['post']) < 201) {
+              $query = "CREATE TABLE $com(
+                  date_entered DATETIME,
+                  post TEXT,
+                  username TEXT,
+                  subs TEXT,
+                  com_name TEXT
+              )";
+              mysql_query($query);
+              $_POST['post'] = str_replace("'", "\'", $_POST['post']);
+              $query = "INSERT INTO $com(date_entered, post, username, com_name) VALUES(
+                  NOW(), '{$_POST['post']}', '{$_SESSION['username']}', '{$com}'
+              )";
+              mysql_query($query);
 
-            $user = $_SESSION['username'];
-            $_POST['post'] = str_replace("'", "\'", $_POST['post']);
-            $query_two = "INSERT INTO $user(date_entered, posts, username) VALUES(
-                NOW(), '{$_POST['post']}', '{$user}'
-            )";
-            mysql_query($query_two);
+              $user = $_SESSION['username'];
+              $_POST['post'] = str_replace("'", "\'", $_POST['post']);
+              $query_two = "INSERT INTO $user(date_entered, posts, username) VALUES(
+                  NOW(), '{$_POST['post']}', '{$user}'
+              )";
+              mysql_query($query_two);
+            } else {
+              print "<script> alert('Community posts can only be 200 characters at max') </script>";
+            }
         }
     }
 }
@@ -179,12 +183,64 @@ function create_user_form(){
     </form>";
 }
 
+
+#creates a form for posting links to your account
+function create_user_link_form(){
+    $path = 'you.php';
+    print "<form action = '$path' method='post'><textarea rows='1' name = 'post' style='color: #2d2d2d;
+    border: 2px solid black;
+    background-color: transparent;
+    outline: none;
+    font-size: 15px;
+    width: 200px;'
+    placeholder='Want to post a link?'></textarea><br><br>
+    <p>make sure to add http:// or https://</p>
+    <br>
+        <input type='submit' value = 'POST' id = 'red_input' name='link'></input>
+
+    </form>";
+}
+
+
+
+
 #handles the form above and inserts info into db.^
 function handle_user_form(){
     if (isset($_POST['red'])) {
         if (!empty($_POST['post'])) {
             $user = $_SESSION['username'];
             $_POST['post'] = str_replace("'", "\'", $_POST['post']);
+            $query_two = "INSERT INTO $user(date_entered, posts, username) VALUES(
+                NOW(), '{$_POST['post']}', '{$user}'
+            )";
+            $query2 = "SELECT * FROM $user";
+            if ($r = mysql_query($query2)) {
+                while ($row = mysql_fetch_array($r)) {
+                    $sss = $row['subscribed_to_you'];
+                    $feed_query = "INSERT INTO $sss(feed, date_entered, feed_name) VALUES(
+                        '{$_POST['post']}', NOW(), '{$user}'
+                    )";
+                    mysql_query($feed_query);
+                }
+            }
+            if (mysql_query($query_two)) {
+                header('Location: you.php');
+            } else {
+                print "<p style='color:white'>sorry bud, we messed up something in the code 8()</p>";
+                print mysql_error();
+            }
+        }
+    }
+}
+
+
+#handles the LINK form above and inserts info into db.^
+function handle_user_link_form(){
+    if (isset($_POST['link'])) {
+        if (!empty($_POST['post'])) {
+            $user = $_SESSION['username'];
+            $_POST['post'] = str_replace("'", "\'", $_POST['post']);
+            $_POST['post'] = '<a target="_blank" href ="' . $_POST['post'] . '">' . $_POST['post'] . '</a>';
             $query_two = "INSERT INTO $user(date_entered, posts, username) VALUES(
                 NOW(), '{$_POST['post']}', '{$user}'
             )";
