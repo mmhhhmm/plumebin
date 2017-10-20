@@ -1,0 +1,183 @@
+/* bungee-shade-regular - latin */
+@font-face {
+  font-family: 'Bungee_Shade';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/bungee-shade-v2-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Bungee Shade'), local('BungeeShade-Regular'),
+       url('../fonts/bungee-shade-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/bungee-shade-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/bungee-shade-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/bungee-shade-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/bungee-shade-v2-latin-regular.svg#BungeeShade') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'bungee_normal';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/bungee-v2-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Bungee'), local('Bungee-Regular'),
+       url('../fonts/bungee-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/bungee-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/bungee-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/bungee-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/bungee-v2-latin-regular.svg#Bungee') format('svg'); /* Legacy iOS */
+}
+
+body{
+    background-color: #eeeeee;
+}
+
+p{
+    color: white;
+}
+
+#big{
+    width: 600px;
+    margin: auto;
+}
+
+#name{
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.notes{
+    margin-left: 600px;
+    width: 190px;
+    height: 110px;
+    border: 3px solid lightblue;
+    border-radius: 10px;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 10px;
+    position: fixed;
+}
+
+.notes > p{
+    font-family: "Bungee_normal", Arial;
+    color: #767676;
+    text-shadow: -2px 2px #dddddd;
+}
+
+.notes:hover, .chat:hover, .jobs:hover, .notifications:hover{
+    height: 100px;
+}
+
+.chat{
+    margin-left: -200px;
+    height: 70px;
+    width: 190px;
+    border: 3px solid white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.chat > p{
+    font-family: "Bungee_normal", Arial;
+    text-shadow: -2px 2px red;
+}
+
+.personal{
+    height: 322px;
+    width: 200px;
+    border: 2px solid white;
+    background-color: #17678d;
+}
+
+.jobs{
+    margin-left: -200px;
+    width: 190px;
+    height: 110px;
+    border: 3px solid lightblue;
+    border-radius: 10px;
+    margin-right: 20px;
+    background-color: transparent;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 10px;
+    position: fixed;
+}
+
+.jobs > p{
+    font-family: "Bungee_normal", Arial;
+    color: #767676;
+    text-shadow: -2px 2px #dddddd;
+}
+
+.logout{
+    display: inline-block;
+    margin-left: 300px;
+}
+
+a{
+    text-decoration: none;
+}
+
+div>p{
+    font-family: helvetica;
+    color: #dfe2f0;
+    font-size: 20px;
+}
+
+.logout>p{
+    color: red;
+}
+
+.personal>p{
+    margin-top: 150px;
+}
+
+#mains{
+    transition: .2s;
+}
+
+#log_text{
+    font-size: 20px;
+    color: red;
+    font-family: helvetica;
+}
+
+.notifications{
+    margin-left: -200px;
+    width: 190px;
+    height: 110px;
+    border: 3px solid lightblue;
+    border-radius: 10px;
+    margin-right: 20px;
+    background-color: transparent;
+    margin-bottom: 10px;
+    text-align: center;
+    position: fixed;
+    margin-top: 140px;
+}
+
+.notifications > p{
+    font-family: "Bungee_normal", Arial;
+    color: #767676;
+    text-shadow: -2px 2px #dddddd;
+}
+
+#sides_contain{
+    height: 200px;
+    width: 250px;
+    position: absolute;
+}
+
+#feed_pic{
+    transform: rotate(90deg);
+    height: 450px;
+    width: 600px;
+    border-radius: 10px;
+    margin-top: 200px;
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+	
+}
+
