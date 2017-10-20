@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>tutorial</title>
+    </head>
+    <body style="background-color: black">
+        <h1>Welcome to Spade</h1>
+        <p>
+            Spade is a colorful social network, and many things are color coded.
+            If you forget what something does, or this is your first time on Spade,
+            this guide will help you learn:
+        </p>
+
+        <p>Click this to go to your main feed page:</p><br>
+        <a href = "welcome.php"><div  class = 'inner_buttons' style="background-color: lightgreen; border-radius: 10px; margin-left: 200px; margin-top: 5px;"></div></a><br>
+        <p>Click this one if you want to go to communities, or search for a user:</p><br>
+        <a href = "find.php"><div  class = 'inner_buttons' style="background-color: yellow; border-radius: 10px; margin-left: 200px; margin-top: 5px;"></div></a><br>
+        <p>This button is a shortcut to the post page</p><br>
+        <a href = "user_post.php"><div  class = 'inner_buttons' style="background-color: red; border-radius: 10px; margin-left: 200px; margin-top: 5px;"></div></a><br>
+        <p>
+            This also takes you to post:
+        </p>
+        <a href ='user_post.php'><div id = 'post' style = 'color: black; opacity: .8; height: 50px; width: 50px; background-color: red; border-radius: 100px; border: 2px solid white; transition: .2s; margin-left: 200px;'></div></a>
+        <style>#post:hover{box-shadow: 2px 4px white}</style>
+
+
+        <style media="screen">
+            p, h1{
+                color: white;
+                font-family: helvetica;
+                font-size: 25px;
+                margin-left: 200px;
+                margin-right: 100px;
+            }
+
+            .inner_buttons{
+                height: 40px;
+                width: 40px;
+                transition: .4s;
+            }
+
+            .inner_buttons:hover{
+                transform: rotate(-90deg);
+                box-shadow: -2px 2px black;;
+            }
+        </style>
+        <br>
+        <p>
+            If you want to go to your profile, just click your name on your feed page.
+            <br>
+            To chat with other users, click the chat button on the homepage. Then click the <strong style="font-size: 40px;"> + </strong> in the top right and search the person you want.
+            <br>
+            If you have any more questions or you want to go to this website for fun, go to <a href="www.spadehelp.com">www.spadehelp.com</a>
+        </p>
+        <br>
+        <br>
+    </body>
+</html>
