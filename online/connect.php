@@ -69,10 +69,22 @@
             $user_check = "SELECT * FROM users";
             if ($r = mysql_query($user_check)) {
                 while ($row = mysql_fetch_array($r)) {
+
+                  $pos = strpos($row['username'], $_POST['user']);
+
+                  if ($pos === false) {
+                    print "";
+                  } else {
+                    print "<a href = 'other_user.php?username=" . $row['username'] . "'><h2 style='color: #8AC5EA; font-size: 30px; text-decoration: underline; cursor: pointer'>{$row['username']}</h2></a>";
+                  }
+
+
+
                     if (strtolower($_POST['user']) == strtolower($row['username'])) {
                         $found_user = $row['username'];
                         session_start();
                         $_SESSION['found_user'] = $found_user;
+
                         print "<a href = 'other_user.php?username=" . $row['username'] . "'><h2 style='color: #8AC5EA; font-size: 30px; text-decoration: underline; cursor: pointer'>{$row['username']}</h2></a>";
                     }
                 }
